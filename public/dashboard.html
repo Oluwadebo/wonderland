@@ -37,46 +37,48 @@
                 </ul>
                 <span class="navbar-text">
                   <button class="btn btn-success"><a href="register.html" style="text-decoration: none;">UPLOAD-DETAILS</a></button>
+                  <button class="btn btn-success" onclick="signout()">SIGN-OUT</a></button>
                 </span>
               </div>
             </div>
         </nav>
         <div class="container">
-          <div class="row h-100">
-            <div class="col-12">
-              <div id="allTodo" class="row mt-2"></div>
+          <div class="row">
+            <div class="col-12 mx-auto">
+              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <video class="w-100 h-75" autoplay muted loop>
+                      <source src="WhippedCream_HomePageVideo_071722.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="footer">
-          <div class="row">
-            <div class="col-6 col-md-4">
-              <h5>Company</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">Blog</a></li>
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">About Us</a></li>
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">Contact Us</a></li>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4">
-              <h5>Resources</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">Privacy Policy</a></li>
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">Terms & Conditions</a></li>
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">Documentation</a></li>
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">Security</a></li>
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">FAQ</a></li>
-              </ul>
-            </div>
-            <div class="col-6 col-md-4">
-              <h5>Discover</h5>
-              <ul class="list-unstyled">
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">Mini POS</a></li>
-                <li class="mb-2"><a href="" class="text-decoration-none link-dark">For Merchants</a></li>
-              </ul>
-            </div>
-            <div className="col-12 mt-4">
-              <p style="opacity: 0.9;"><span id="year"></span> WONDERLAND Dance academy is a dance group for up coming and mature dancer. Launched in June 2020, the company has spread its services across all 36 states in Nigeria. Unauthorised reproduction and/or redistribution of copyrighted materials on this website and social media pages is strictly prohibited.</p>
+          <div class="footer">
+            <div class="row mt-5">
+              <div class="col-6 col-md-8">
+                <h6 style="opacity: 0.9;"><span id="year"></span> WONDERLAND Dance academy is a dance group for up coming and mature dancer. Launched in June 2020, the company has spread its services across all 36 states in Nigeria. Unauthorised reproduction and/or redistribution of copyrighted materials on this website and social media pages is strictly prohibited.</h6>
+              </div>
+              <div class="col-6 col-md-2">
+                <h5>Company</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">Blog</a></li>
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">About Us</a></li>
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-2">
+                <h5>Resources</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">Privacy Policy</a></li>
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">Terms & Conditions</a></li>
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">Documentation</a></li>
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">Security</a></li>
+                  <li class="mb-2"><a href="" class="text-decoration-none link-dark">FAQ</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -134,6 +136,15 @@
           todoId = 0;         
         }
       })
+
+      const signout =()=>{
+        signOut(auth).then((response) => {
+          window.location = "signin.html";
+        }).catch((error) => {
+          console.log(response);
+        })
+      } 
+      window.signout = signout;
 
     </script>
     <script>

@@ -12,7 +12,7 @@
         }
       </style>
   </head>
-  <body style="background: linear-gradient(to top, #ca6baf 0%, #5a8ce2 100%);background-repeat: no-repeat;min-height: 100vh;">
+  <body style="background:purple;">
       
     <div class="container-fluid">
 
@@ -25,15 +25,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="dashboard.html"><h4> Home</h4></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="students.html"><h4>Students</h4></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><h4>Pricing</h4></a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="dashboard.html"><h4> Home</h4></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="students.html"><h4>Students</h4></a>
+                        </li>
                     </ul>
                 </div>
                 </div>
@@ -42,11 +39,14 @@
         <div class="container">
             <div class="row mt-4">
                 <div class="col-12 table-responsive">
-                    <table class="table table-bordered" align="center" border="1" id="allTodo">
+                    <table class="table table-bordered text-light" align="center" border="1" id="allTodo">
                         <tr>
                             <th>PICS</th>
                             <th>FULLNAME</th>
                             <th>NUMBERS</th>
+                            <th>DEPARTMENT</th>
+                            <th>LEVEL</th>
+                            <th>DANCING-SKILL</th>
                             <th>EMAIL</th>
                             <th>ADRESS</th>
                         </tr>
@@ -117,6 +117,9 @@
                         <td><img src="${url}" alt="" class="img-fluid rounded-circle me-2" width="32" height="32"></td>
                         <td>${todo.todo.pname}</td>
                         <td>${todo.todo.number}</td>
+                        <td>${todo.todo.Deparment}</td>
+                        <td>${todo.todo.Level}</td>
+                        <td>${todo.todo.Dancing}</td>
                         <td>${todo.todo.email}</td>
                         <td>${todo.todo.address}</td>
                     </tr>`

@@ -36,6 +36,7 @@
               </div>
               <div class="d-flex">
                 <button class="btn btn-dark px-4 mx-auto my-2" id="signUpBtn">Sign-Up</button>
+                <button class="btn btn-dark px-4 mx-md-auto my-2 mx-2" id="signInG"><img src="svgexport-2.png" class="px-2"> Sign-Up with google</button>
               </div>
               <h4 class="text-center text-light">Already have an account? <i><a href="signin.html" class="text-dark">Sign-In</a></i></h4>
             </div>
@@ -118,6 +119,36 @@
             res.innerHTML = `<div class="alert alert-danger">Please fill this form below, before clicking the Sign-Up button</div>`;
           }
         })
+
+        document.getElementById("signInG").addEventListener("click", function () {
+        signInWithPopup(auth, provider).then((credentials) =>{
+          window.location = "dashboard.html";
+        }).catch((error) =>{
+          var a = error.message;
+          var b = "Firebase: Error (auth/network-request-failed).";
+          var c = "Firebase: Error (auth/unauthorized-domain).";
+          var d = "Firebase: Error (auth/internal-error).";
+          var f = "Firebase: Error (auth/invalid-email).";
+          var g = "Firebase: Error (auth/missing-email).";
+          var h = "Firebase: Password should be at least 6 characters (auth/weak-password).";
+          var i = "Firebase: Error (auth/email-already-in-use).";
+          if (a==b) {
+            res.innerHTML = `<div class="alert alert-danger">network-request-failed</div>`;
+          }else if (a==c) {
+            res.innerHTML = `<div class="alert alert-danger">unauthorized-domain</div>`;
+          }else if (a==d) {
+            res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
+          }else if (a==f) {
+            res.innerHTML = `<div class="alert alert-danger">invalid-email</div>`;
+          }else if (a==g) {
+            res.innerHTML = `<div class="alert alert-danger">missing-email</div>`;
+          }else if (a==h) {
+            res.innerHTML = `<div class="alert alert-danger">Password should be at least 6 characters (weak-password)</div>`;
+          }else if (a==i) {
+            res.innerHTML = `<div class="alert alert-danger">email-already-in-use</div>`;
+          }
+        })
+      })
       
     </script>
 

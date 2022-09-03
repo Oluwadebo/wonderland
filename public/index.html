@@ -98,7 +98,6 @@
               var c = "Firebase: Error (auth/unauthorized-domain).";
               var d = "Firebase: Error (auth/internal-error).";
               var f = "Firebase: Error (auth/invalid-email).";
-              var g = "Firebase: Error (auth/missing-email).";
               var h = "Firebase: Password should be at least 6 characters (auth/weak-password).";
               var i = "Firebase: Error (auth/email-already-in-use).";
               if (a==b) {
@@ -109,8 +108,6 @@
                 res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
               }else if (a==f) {
                 res.innerHTML = `<div class="alert alert-danger">invalid-email</div>`;
-              }else if (a==g) {
-                res.innerHTML = `<div class="alert alert-danger">missing-email</div>`;
               }else if (a==h) {
                 res.innerHTML = `<div class="alert alert-danger">Password should be at least 6 characters (weak-password)</div>`;
               }else if (a==i) {

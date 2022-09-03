@@ -79,7 +79,6 @@
             var c = "Firebase: Error (auth/unauthorized-domain).";
             var d = "Firebase: Error (auth/internal-error).";
             var f = "Firebase: Error (auth/invalid-email).";
-            var g = "Firebase: Error (auth/missing-email).";
             var h = "Firebase: Password should be at least 6 characters (auth/weak-password).";
             var i = "Firebase: Error (auth/email-already-in-use).";
             var j = "Firebase: Error (auth/wrong-password).";
@@ -92,8 +91,6 @@
                 res.innerHTML = `<div class="alert alert-danger">internal-error</div>`;
             }else if (a==f) {
                 res.innerHTML = `<div class="alert alert-danger">invalid-email</div>`;
-            }else if (a==g) {
-                res.innerHTML = `<div class="alert alert-danger">missing-email</div>`;
             }else if (a==h) {
                 res.innerHTML = `<div class="alert alert-danger">Password should be at least 6 characters (weak-password)</div>`;
             }else if (a==i) {
@@ -105,7 +102,13 @@
             }
             })
           }else{
-            res.innerHTML = `<div class="alert alert-danger">Please fill this form below, before clicking the Sign-In button</div>`;
+            if (emailInp.value == "" && passInp.value == "") {
+              res.innerHTML = `<div class="alert alert-danger">Please fill this form below, before clicking the Sign-In button</div>`;              
+            }else if (emailInp.value == "") {
+              res.innerHTML = `<div class="alert alert-danger">Please provide email</div>`;
+            }else if (passInp.value == "") {
+              res.innerHTML = `<div class="alert alert-danger">Please provide password</div>`;
+            }
           }
         })
       

@@ -12,7 +12,7 @@
         }
       </style>
   </head>
-  <body style="background:purple;">
+  <body style="background:rgb(183, 36, 183);">
       
     <div class="container-fluid">
 
@@ -40,37 +40,40 @@
           <div class="container">
             <div class="row h-100">
               <div class=" col-12 col-md-8 mx-auto mt-5">
-                <div class="card shadow col-12 p-1 px-3 text-light mb-5" style="background:rgba(57, 189, 215, 0.603)">
+                <div class="shadow col-12 p-1 px-3 text-light mb-5" style="background:rgba(255,255,255,.2);backdrop-filter: blur(5px);border-radius: 5px;">
                   <h2 class="text-center text-light py-2"><i>Registration form</i></h2>
-                  <input type="file" class="form-control mb-2" id="fileInp" accept=".jpg, .jpeg, .png, .gif" style="border:1px solid #0a5ef0;border-radius:20px;">
+                  <div class="col-12">
+                    <div id="res" class="shadow col-12 col-md-12 mx-auto m-2"></div>
+                  </div>
+                  <input type="file" class="form-control mb-2" id="fileInp" accept=".jpg, .jpeg, .png, .gif" style="border:1px solid rgba(255,255,255,.5);border-radius:20px;">
                   <div class="form-floating mb-2">
-                    <input type="text" class="form-control bg-transparent" id="todoInp" placeholder="Full_name" style="border:1px solid #0a5ef0;border-radius:20px;">
-                    <label for="text">Full_name</label>
+                    <input type="text" class="form-control bg-transparent text-light" id="todoInp" placeholder="Full_name" style="border:1px solid rgba(255,255,255,.5);border-radius:20px;color: white;">
+                    <label for="text" style="color: purple;">Full_name</label>
                   </div>
                   <div class="form-floating my-2">
-                    <input type="number" class="form-control bg-transparent" id="todoInp2" placeholder="Phone_no" style="border:1px solid #0a5ef0;border-radius:20px;">
-                    <label for="number">phone number</label>
+                    <input type="number" class="form-control bg-transparent" id="todoInp2" placeholder="Phone_no" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                    <label style="color: purple;" for="number">phone number</label>
                   </div>
                   <div class="form-floating my-2">
-                    <input type="text" class="form-control bg-transparent" id="todoInp5" placeholder="Deparment" style="border:1px solid #0a5ef0;border-radius:20px;">
-                    <label for="text">Deparment</label>
+                    <input type="text" class="form-control bg-transparent" id="todoInp5" placeholder="Deparment" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                    <label style="color: purple;" for="text">Deparment</label>
                   </div>
                   <div class="form-floating my-2">
-                    <input type="number" class="form-control bg-transparent" id="todoInp6" placeholder="Level" style="border:1px solid #0a5ef0;border-radius:20px;">
-                    <label for="number">Level</label>
+                    <input type="number" class="form-control bg-transparent" id="todoInp6" placeholder="Level" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                    <label style="color: purple;" for="number">Level</label>
                   </div>
                   <div class="form-floating my-2">
-                    <input type="email" class="form-control bg-transparent" id="todoInp4" placeholder="email" style="border:1px solid #0a5ef0;border-radius:20px;">
-                    <label for="email">email</label>
+                    <input type="email" class="form-control bg-transparent" id="todoInp4" placeholder="email" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                    <label style="color: purple;" for="email">email</label>
                   </div>
                   <div class="form-floating my-2">
-                    <input type="address" class="form-control bg-transparent" id="todoInp3" placeholder="Address" style="border:1px solid #0a5ef0;border-radius:20px;">
-                    <label for="password">Address</label>
+                    <input type="address" class="form-control bg-transparent" id="todoInp3" placeholder="Address" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                    <label style="color: purple;" for="password">Address</label>
                   </div>
                   <div class="form-floating my-2">
-                    <input type="text" class="form-control bg-transparent" id="todoInp7" placeholder="Dancing Skill (Beginner,intermediate,professional)" style="border:1px solid #0a5ef0;border-radius:20px;">
-                    <label for="text" class="d-none d-md-block">Dancing Skill (Beginner,intermediate,professional)</label>
-                    <label for="text" class="d-block d-md-none">Dancing Skill</label>
+                    <input type="text" class="form-control bg-transparent" id="todoInp7" placeholder="Dancing Skill (Beginner,intermediate,professional)" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                    <label style="color: purple;" for="text" class="d-none d-md-block">Dancing Skill (Beginner,intermediate,professional)</label>
+                    <label style="color: purple;" for="text" class="d-block d-md-none">Dancing Skill</label>
                   </div>
                   <div class="mb-3">
                     <button class="btn btn-dark w-100 my-2" id="todoBtn">Up Load</button>
@@ -140,33 +143,37 @@
       
 
       document.getElementById("todoBtn").addEventListener("click", function(){
-        let todo = {pname:todoInp.value,number:todoInp2.value,address:todoInp3.value,email:todoInp4.value,Deparment:todoInp5.value,Level:todoInp6.value,Dancing:todoInp7.value}
-        let files = fileInp.files[0];
-        let fileName = files.name;
-        let date = new Date();
+        if (fileInp.value !== "" && todoInp.value !== "" && todoInp2.value !== "" && todoInp3.value !== "" && todoInp4.value !== "" && todoInp5.value !== "" && todoInp7.value !== "") {
+          let todo = {pname:todoInp.value,number:todoInp2.value,address:todoInp3.value,email:todoInp4.value,Deparment:todoInp5.value,Level:todoInp6.value,Dancing:todoInp7.value}
+          let files = fileInp.files[0];
+          let fileName = files.name;
+          let date = new Date();
 
-        let todoObj = {email: userDetails.email, img_name: fileName, todo, time: date.toLocaleTimeString()};
-        let todoRef = ref(db, `todos/${todoId}`);
-        set(todoRef, todoObj);
+          let todoObj = {email: userDetails.email, img_name: fileName, todo, time: date.toLocaleTimeString()};
+          let todoRef = ref(db, `todos/${todoId}`);
+          set(todoRef, todoObj);
 
-        let imgRef = stRef(storage, `Cars/${fileName}`);
-        let uploadImage = uploadBytesResumable(imgRef, files);
-        uploadImage.on("state-changed", function(snapshot){
-            let totalBytes = snapshot.totalBytes;
-            let bytesTransferred = snapshot.bytesTransferred;
-            let progress = Math.round((bytesTransferred/totalBytes) * 100);
+          let imgRef = stRef(storage, `Cars/${fileName}`);
+          let uploadImage = uploadBytesResumable(imgRef, files);
+          uploadImage.on("state-changed", function(snapshot){
+              let totalBytes = snapshot.totalBytes;
+              let bytesTransferred = snapshot.bytesTransferred;
+              let progress = Math.round((bytesTransferred/totalBytes) * 100);
 
-            loader.innerHTML = `<div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${progress}%"><span style="font-size: 20px;float:right;" class="px-2">${progress}%</span></div>
-            </div>`;
-        }, function (error) {
-            console.log(error);
-        }, function () {
-            loader.innerHTML = "Uploaded!";
-            loader.style.background = "green";
-            loader.style.color = "white";
-            window.location = "dashboard.html";
-        })
+              loader.innerHTML = `<div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: ${progress}%"><span style="font-size: 20px;float:right;" class="px-2">${progress}%</span></div>
+              </div>`;
+          }, function (error) {
+              console.log(error);
+          }, function () {
+              loader.innerHTML = "Uploaded!";
+              loader.style.background = "green";
+              loader.style.color = "white";
+              window.location = "dashboard.html";
+          }) 
+        }else{
+          res.innerHTML = `<div class="alert alert-danger">Please provide your details before Uploading</div>`;
+        }
       })
 
     </script>

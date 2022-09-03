@@ -71,9 +71,12 @@
                     <label style="color: purple;" for="password">Address</label>
                   </div>
                   <div class="form-floating my-2">
-                    <input type="text" class="form-control bg-transparent" id="todoInp7" placeholder="Dancing Skill (Beginner,intermediate,professional)" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
-                    <label style="color: purple;" for="text" class="d-none d-md-block">Dancing Skill (Beginner,intermediate,professional)</label>
-                    <label style="color: purple;" for="text" class="d-block d-md-none">Dancing Skill</label>
+                    <select class="form-select bg-transparent" id="todoInp7" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                      <option value="1">Beginner</option>
+                      <option value="2">Intermediate</option>
+                      <option value="3">Professional</option>
+                    </select>
+                    <label for="floatingSelect" style="color: purple;">Dancing Skill</label>
                   </div>
                   <div class="mb-3">
                     <button class="btn btn-dark w-100 my-2" id="todoBtn">Up Load</button>
@@ -144,7 +147,10 @@
 
       document.getElementById("todoBtn").addEventListener("click", function(){
         if (fileInp.value !== "" && todoInp.value !== "" && todoInp2.value !== "" && todoInp3.value !== "" && todoInp4.value !== "" && todoInp5.value !== "" && todoInp7.value !== "") {
-          let todo = {pname:todoInp.value,number:todoInp2.value,address:todoInp3.value,email:todoInp4.value,Deparment:todoInp5.value,Level:todoInp6.value,Dancing:todoInp7.value}
+          let e = document.getElementById("todoInp7");
+          let value = e.value;
+          let text = e.options[e.selectedIndex].text;
+          let todo = {pname:todoInp.value,number:todoInp2.value,address:todoInp3.value,email:todoInp4.value,Deparment:todoInp5.value,Level:todoInp6.value,Dancing:text}
           let files = fileInp.files[0];
           let fileName = files.name;
           let date = new Date();

@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="style.css">
     <title>SIGN-IN</title>
   </head>
-  <body class="p-3" style="background:purple;">
+  <body class="p-3" style="background:rgba(179, 26, 179, 0.6);">
     
     <div class="container-fluid">
 
       <div class="container mt-5">
         <div class="row">
           <div class="col-12">
-            <div class="card shadow col-12 col-md-6 mx-auto p-1 px-3" style="background:rgba(57, 189, 215, 0.603)">
-              <h2 class="text-center text-light py-2"><i>SIGN-IN</i></h2>
+            <div class="card shadow col-12 col-md-6 mx-auto p-1 px-3" style="background:rgba(255,255,255,.2);backdrop-filter: blur(5px);border-radius: 5px;">
+              <h2 class="text-center py-2" style="color: purple;"><i>SIGN-IN</i></h2>
               <div class="col-12">
                 <div id="res" class="shadow col-12 col-md-12 mx-auto m-2"></div>
               </div>
               <div class="form-floating">
-                <input type="email" class="form-control bg-transparent" id="emailInp" placeholder="Your email" style="border:1px solid #0a5ef0;border-radius:20px;">
-                <label for="emailInp">&#x1F4E7;&nbsp; Your email</label>
+                <input type="email" class="form-control bg-transparent" id="emailInp" placeholder="Your email" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                <label style="color: purple;" for="emailInp">&#x1F4E7;&nbsp; Your email</label>
               </div>
               <div class="form-floating my-2">
-                <input type="password" class="form-control bg-transparent" id="passInp" maxlength="10" placeholder="Your password" style="border:1px solid #0a5ef0;border-radius:20px;">
-                <label for="passInp">&#x1F512;&nbsp; Your password</label>
+                <input type="password" class="form-control bg-transparent" id="passInp" maxlength="10" placeholder="Your password" style="border:1px solid rgba(255,255,255,.5);border-radius:20px; color: white;">
+                <label style="color: purple;" for="passInp">&#x1F512;&nbsp; Your password</label>
               </div>
               <div class="d-flex">
-                <button class="btn btn-info px-4 mx-auto my-2" id="signInBtn">Sign In</button>
+                <button class="btn btn-dark px-4 mx-auto my-2" id="signInBtn">Sign-In</button>
               </div>
               <h4 class="text-center text-light">Don't have an account? <i><a href="index.html" class="text-dark">Sign-Up</a></i></h4>
             </div>            
@@ -66,6 +66,7 @@
         const provider = new GoogleAuthProvider();
 
         document.getElementById("signInBtn").addEventListener("click", function() {
+          if (emailInp.value !== "" && passInp.value !== "") {
             let email = emailInp.value;
             let password = passInp.value;
 
@@ -103,6 +104,9 @@
                 res.innerHTML = `<div class="alert alert-danger">user-not-found</div>`;
             }
             })
+          }else{
+            res.innerHTML = `<div class="alert alert-danger">Please fill this form below, before clicking the Sign-In button</div>`;
+          }
         })
       
     </script>
